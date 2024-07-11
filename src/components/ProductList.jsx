@@ -1,36 +1,48 @@
+// ProductList.js
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "../css/ProductList.css"; // Import your CSS file
 
 function ProductList() {
-  //   const [products] = useState([
-  //     {
-  //       id: "1",
-  //       name: "Avocado",
-  //       price: 123,
-  //       vendor: {
-  //         username: "steven",
-  //       },
-  //     },
-  //   ]);
-
   const [products, setProducts] = useState([]);
+
+  //   const [products] = useState([
+  //   {
+  //     id: "1",
+  //     name: "Avocado",
+  //     price: 123,
+  //     vendor: {
+  //       username: "steven",
+  //     },
+  //   },
+  // ]);
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const { data } = await axios.get("/api/products");
-      setProducts(data);
+      try {
+        const { data } = await axios.get("/api/products");
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
     };
 
     fetchProducts();
   }, []);
 
   return (
-    <div>
+    <div className="product-list-container">
       <h2>Product List</h2>
-      <ul>
+      <ul className="product-list">
         {products.map((product) => (
-          <li key={product._id}>
-            {product.name} - Ksh {product.price} - {product.vendor.username}
+          <li key={product._id} className="product-item">
+            <div className="product-name">{product.name}</div>
+            <div className="product-details">
+              Price: Ksh <span className="product-price">{product.price}</span>{" "}
+              - Vendor:{" "}
+              <span className="vendor-username">{product.vendor.username}</span>
+            </div>
           </li>
         ))}
       </ul>
