@@ -1,12 +1,17 @@
+// Dashboard.js
+
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../css/Dashboard.css'; // Import your CSS file
 
 function Dashboard() {
   return (
-    <div>
-      <h2>Dashboard</h2>
-      <Link to="/products">View Products</Link>
-      <Link to="/add-product">Add Product</Link>
+    <div className="dashboard-container">
+      <h2 className="dashboard-title">Dashboard</h2>
+      <div className="dashboard-links">
+        <Link to="/products" className="dashboard-link">View Products</Link>
+        <Link to="/add-product" className="dashboard-link">Add Product</Link>
+      </div>
     </div>
   );
 }

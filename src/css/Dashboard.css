@@ -1,0 +1,38 @@
+/* Dashboard.css */
+
+.dashboard-container {
+    max-width: 600px; /* Limit maximum width */
+    margin: 0 auto; /* Center align horizontally */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background color */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  }
+  
+  .dashboard-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333; /* Dark text color */
+  }
+  
+  .dashboard-links {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dashboard-links a {
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff; /* White background */
+    text-decoration: none;
+    color: #333; /* Dark text color */
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+    transition: background-color 0.3s ease;
+  }
+  
+  .dashboard-links a:hover {
+    background-color: #f0f0f0; /* Light background color on hover */
+  }
+  
