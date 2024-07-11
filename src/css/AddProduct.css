@@ -1,0 +1,59 @@
+/* AddProduct.css */
+
+.add-product-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0 20px; /* Add padding to create space on left and right */
+    box-sizing: border-box; /* Ensures padding is included in total width */
+  }
+  
+  .add-product-form {
+    width: 100%; /* Use 100% width for responsiveness */
+    max-width: 400px; /* Maximum width */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-sizing: border-box; /* Ensures padding is included in total width */
+  }
+  
+  .add-product-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .input-field {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #28a745; /* Green background color */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+  
+  /* Media queries for responsiveness */
+  
+  @media (max-width: 768px) {
+    .add-product-form {
+      width: 100%; /* Adjust width for smaller screens */
+      max-width: 100%; /* Ensures form does not exceed screen width */
+    }
+  }
+  

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../css/AddProduct.css"; // Import your CSS file for styling
 
 function AddProduct() {
   const [name, setName] = useState("");
@@ -40,40 +41,47 @@ function AddProduct() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Add Product</h2>
-      <input
-        type="text"
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="Price"
-        value={price}
-        onChange={(e) => setPrice(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Category"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="Stock"
-        value={stock}
-        onChange={(e) => setStock(e.target.value)}
-      />
-      <button type="submit">Add Product</button>
-    </form>
+    <div className="add-product-container">
+      <form className="add-product-form" onSubmit={handleSubmit}>
+        <h2>Add Product</h2>
+        <input
+          type="text"
+          className="input-field"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="number"
+          className="input-field"
+          placeholder="Price"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+        />
+        <input
+          type="text"
+          className="input-field"
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        <input
+          type="text"
+          className="input-field"
+          placeholder="Category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        />
+        <input
+          type="number"
+          className="input-field"
+          placeholder="Stock"
+          value={stock}
+          onChange={(e) => setStock(e.target.value)}
+        />
+        <button type="submit" className="submit-button">Add Product</button>
+      </form>
+    </div>
   );
 }
 
