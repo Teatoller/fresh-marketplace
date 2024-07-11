@@ -9,7 +9,7 @@ function Register() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2 style={{border: "1px solid red"}}>Register</h2>
+      <h2>Register</h2>
       <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
       <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
       <select value={role} onChange={(e) => setRole(e.target.value)}>
