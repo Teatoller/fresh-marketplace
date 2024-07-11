@@ -2,21 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../css/ProductList.css"; // Import your CSS file
+import "./ProductList.css"; // Import your CSS file
 
 function ProductList() {
   const [products, setProducts] = useState([]);
-
-  //   const [products] = useState([
-  //   {
-  //     id: "1",
-  //     name: "Avocado",
-  //     price: 123,
-  //     vendor: {
-  //       username: "steven",
-  //     },
-  //   },
-  // ]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -39,8 +28,7 @@ function ProductList() {
           <li key={product._id} className="product-item">
             <div className="product-name">{product.name}</div>
             <div className="product-details">
-              Price: Ksh <span className="product-price">{product.price}</span>{" "}
-              - Vendor:{" "}
+              Price: Ksh <span className="product-price">{product.price}</span> - Vendor:{" "}
               <span className="vendor-username">{product.vendor.username}</span>
             </div>
           </li>
