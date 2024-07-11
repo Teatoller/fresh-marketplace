@@ -13,15 +13,29 @@ function AddProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
+
+    // Check if token is available
+    if (!token) {
+      console.error("No token found in localStorage");
+      return;
+    }
+
+    // Set headers with Authorization
+    const headers = {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    };
+
     try {
+      // Make Axios post request with headers
       await axios.post(
         "/api/products",
         { name, price, description, category, stock },
-        { headers: { Authorization: token } }
+        { headers }
       );
       navigate("/products");
     } catch (error) {
-      console.error(error);
+      console.error("Error adding product:", error);
     }
   };
 
