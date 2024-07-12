@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import "../css/AddProduct.css"; // Import your CSS file for styling
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook
+import "../css/AddProduct.css"; // Import your CSS file
 
 function AddProduct() {
   const [name, setName] = useState("");
@@ -9,77 +9,86 @@ function AddProduct() {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [stock, setStock] = useState("");
-  const navigate = useNavigate();
+  const [error, setError] = useState("");
+
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem("token");
-
-    // Check if token is available
-    if (!token) {
-      console.error("No token found in localStorage");
-      return;
-    }
-
-    // Set headers with Authorization
-    const headers = {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    };
-
     try {
-      // Make Axios post request with headers
-      await axios.post(
+      const token = localStorage.getItem("token");
+      const response = await axios.post(
         "/api/products",
         { name, price, description, category, stock },
-        { headers }
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
+      console.log("Product added:", response.data);
+      // Optionally clear the form after successful submission
+      setName("");
+      setPrice("");
+      setDescription("");
+      setCategory("");
+      setStock("");
+
+      // Redirect to product list upon successful addition
       navigate("/products");
     } catch (error) {
       console.error("Error adding product:", error);
+      setError("Failed to add product. Please check your input.");
     }
   };
 
   return (
-    <div className="add-product-container">
-      <form className="add-product-form" onSubmit={handleSubmit}>
-        <h2>Add Product</h2>
+    <div className="form-container">
+      <h2>Add Product</h2>
+      {error && <p className="error-message">{error}</p>}
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
-          className="input-field"
           placeholder="Name"
+          className="form-input"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          required
         />
         <input
-          type="number"
-          className="input-field"
+          type="text"
           placeholder="Price"
+          className="form-input"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
+          required
         />
-        <input
-          type="text"
-          className="input-field"
+        <textarea
           placeholder="Description"
+          className="form-textarea"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          required
         />
         <input
           type="text"
-          className="input-field"
           placeholder="Category"
+          className="form-input"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
+          required
         />
         <input
           type="number"
-          className="input-field"
           placeholder="Stock"
+          className="form-input"
           value={stock}
           onChange={(e) => setStock(e.target.value)}
+          required
         />
-        <button type="submit" className="submit-button">Add Product</button>
+        <button type="submit" className="form-button">
+          Add Product
+        </button>
       </form>
     </div>
   );

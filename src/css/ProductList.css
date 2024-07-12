@@ -1,51 +1,43 @@
 /* ProductList.css */
 
 .product-list-container {
-    max-width: 600px; /* Limit maximum width */
-    margin: 0 auto; /* Center align horizontally */
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
-    background-color: #f9f9f9; /* Light background color */
+    background-color: #f0f0f0;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  }
-  
-  .product-list-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333; /* Dark text color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
   .product-list {
-    list-style-type: none; /* Remove default list styles */
+    list-style: none;
     padding: 0;
   }
   
   .product-item {
-    background-color: #fff; /* White background */
+    background-color: #ffffff;
+    margin-bottom: 20px;
     padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   .product-name {
     font-size: 18px;
     font-weight: bold;
-    color: #333; /* Dark text color */
   }
   
   .product-details {
-    font-size: 16px;
-    color: #666; /* Medium text color */
+    font-size: 14px;
+    margin-top: 8px;
   }
   
   .product-price {
-    font-size: 16px;
-    color: #5cb85c; /* Green text color */
+    font-weight: bold;
   }
   
   .vendor-username {
     font-style: italic;
-    color: #888; /* Lighter text color */
+    color: #888888;
   }
   
