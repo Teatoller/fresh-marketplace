@@ -7,21 +7,21 @@ import "../css/ProductList.css"; // Import your CSS file
 function ProductList() {
   const [products, setProducts] = useState([]);
 
-  //   const [products] = useState([
-  //   {
-  //     id: "1",
-  //     name: "Avocado",
-  //     price: 123,
-  //     vendor: {
-  //       username: "steven",
-  //     },
-  //   },
-  // ]);
-
   useEffect(() => {
     const fetchProducts = async () => {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        console.error("No token found in localStorage");
+        return;
+      }
+
       try {
-        const { data } = await axios.get("/api/products");
+        const { data } = await axios.get("/api/products", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         setProducts(data);
       } catch (error) {
         console.error("Error fetching products:", error);
